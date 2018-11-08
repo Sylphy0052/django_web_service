@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Start a New Thread{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'bbs:index' %}">BBS</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'bbs:bbs_threads' bbs.pk %}">{{ bbs.name }}</a></li>
+  <li class="breadcrumb-item active">New thread</li>
+{% endblock %}
+
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button type="submit" class="btn btn-success">Post</button>
+  </form>
+{% endblock %}

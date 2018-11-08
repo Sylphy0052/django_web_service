@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li classs="breadcrumb-item active">BBS</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>BBS</th>
+        <th>Posts</th>
+        <th>Threads</th>
+        <th>Last Post</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bbs in bbss %}
+        <tr>
+          <td>
+            <a href="{% url 'bbs:bbs_threads' bbs.pk %}">{{ bbs.name }}</a>
+            <small class="text-muted d-block">{{ bbs.description }}</small>
+          </td>
+          <td class="align-middle">0</td>
+          <td class="align-middle">0</td>
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

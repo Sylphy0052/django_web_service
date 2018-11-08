@@ -1,0 +1,37 @@
+{% load static %}<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BBS</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+  <div class="container">
+    <ol class="breadcrumb my-4">
+      <li classs="breadcrumb-item active">BBS</li>
+    </ol>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>BBS</th>
+          <th>Posts</th>
+          <th>Threads</th>
+          <th>Last Post</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bbs in bbss %}
+          <tr>
+            <td>
+              <a href="{% url 'bbs_threads' bbs.pk %}">{{ bbs.name }}</a>
+              <small class="text-muted d-block">{{ bbs.description }}</small>
+            </td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">0</td>
+            <td></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</body>
+</html>
